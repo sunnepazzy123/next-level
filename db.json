@@ -2,7 +2,15 @@
   "users": [
     {
       "id": 1,
-      "name": "sunday"
-    }
+      "name": "sunday",
+      "email": "admin@gmail.com",
+      "passwword": "12345"
+    },
+    {
+        "id": 2,
+        "name": "jenny",
+        "email": "user@gmail.com",
+        "passwword": "12345"
+      }
   ]
 }
