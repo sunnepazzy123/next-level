@@ -36,18 +36,14 @@ export class UsersService {
       throw new NotFoundException('user not found');
     }
 
-    let salt: string;
-    let hash: Buffer;
-    let hashSaltedPassword: string;
-
     if (attrs.password) {
       //generate a salt
-      salt = randomBytes(8).toString('hex');
+      const salt = randomBytes(8).toString('hex');
 
       //generate a hash
-      hash = (await scrypt(attrs.password, salt, 32)) as Buffer;
+      const hash = (await scrypt(attrs.password, salt, 32)) as Buffer;
 
-      hashSaltedPassword = salt + '.' + hash.toString('hex');
+      const hashSaltedPassword = salt + '.' + hash.toString('hex');
       user.password = hashSaltedPassword;
     }
 
